@@ -1,0 +1,54 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+
+<div class="card bg-light">
+<article class="card-body mx-auto" style="max-width: 400px;">
+	<h4 class="card-title mt-3 text-center"> Vendre un article </h4>
+	
+<form>
+  	<div class="form-group input-group">
+		    <span class="input-group-text"> Code  :  </span>
+        <input name="" class="form-control"  [(ngModel)]="newArticle.code"  [ngModelOptions]="{standalone: true}"  placeholder="Code" type="text">
+    </div> <!-- form-group// -->
+
+    <div class="form-group input-group">
+		    <span class="input-group-text">Nom Article :  </span>
+        <input name="" class="form-control" [(ngModel)]="newArticle.nom"  [ngModelOptions]="{standalone: true}" placeholder="Nom" type="text">
+    </div> <!-- form-group// -->
+
+    <div class="form-group input-group">
+      <span class="input-group-text">Description :  </span>
+      <input name="" class="form-control" [(ngModel)]="newArticle.description"  [ngModelOptions]="{standalone: true}" placeholder="Description" type="text">
+  </div> <!-- form-group// -->
+
+    <div class="form-group input-group" >	
+		    <span class="input-group-text">Prix :  </span>
+        <input name="" class="form-control"  [(ngModel)]="newArticle.prix" [ngModelOptions]="{standalone: true}" placeholder="Prix" type="text">
+    </div> <!-- form-group// -->
+
+    <div class="form-group input-group">
+      <span class="input-group-text">Categorie :  </span>
+      <select class="form-select" [(ngModel)]="newArticle.categorieDto.id" aria-label="Default select example" [ngModelOptions]="{standalone: true}" >
+         <option *ngFor="let categorie of categories let i = index " [value]="categorie.id">{{categorie.designation }}</option> 
+      </select>
+  	</div> <!-- form-group end.// -->    
+
+
+    <div class="form-group input-group" >	
+      <span class="input-group-text">Image :  </span>
+      <input name="" class="form-control" type="file" (change)="onSelectFile($event)" >
+  </div> <!-- form-group// -->
+
+
+    <div class="form-group">
+        <button  (click)="saveArticle()" class="btn btn-primary btn-block"> Vendre   </button>
+    </div> <!-- form-group// -->      
+            
+</form>
+</article>
+

@@ -1,0 +1,92 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+<p><div class="row">
+    <div class="col-md-8 mt-4 mx-auto">
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title">Articles</h3>
+          <table class="table table-bordered">
+            <thead class="bg-dark text-white">
+              <tr>
+                <td>Code</td>
+                <td>Nom</td>
+                <td>Description</td>
+                <td> Prix</td>
+                <td>Categorie</td>
+                <td>Vendeure</td>
+                <td></td>  
+      
+              </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let article of articles let i = index">
+                  <td>{{article.code}}</td>
+                  <td>{{article.nom}}</td>
+                  <td>{{article.description}}</td>
+                  <td>{{article.prix}}</td>              
+                  <td *ngIf="article.categorieDto">{{article.categorieDto.designation}}</td>
+                  <td *ngIf="!article.categorieDto">-</td>
+                  <td>{{article.utilisateurDto.nom}}</td>  
+                    
+                  <td>
+                      <button type="button" (click)=" acheter(i)"  class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                       ><i class="fa fa-cart-plus"></i> Achter   </button>
+                  </td>
+                </tr>
+
+
+
+              
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Payment </h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="row"> 
+            <div class="icons"> <img src="https://img.icons8.com/color/48/000000/visa.png" /> <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png" /> <img src="https://img.icons8.com/color/48/000000/maestro.png" /> </div>
+        </div>
+          <div class="form-group input-group" >	
+            <span class="input-group-text">votre nom et prenom :  </span>
+            <input name="" class="form-control"  placeholder="Nom et Prenom" type="text">
+          </div> 
+
+          <div class="form-group input-group" >	
+            <span class="input-group-text"> numero de carte </span>
+            <input name="" class="form-control"  placeholder="0125 6780 4567 9909" type="text">
+          </div> 
+
+          <div class="form-group input-group" >	
+            <span class="input-group-text"> Date d'expiration: </span>
+            <input name="" class="form-control"  placeholder="YY/MM" type="text">
+            <span class="input-group-text"> CVV : </span>
+                <input name="" class="form-control"  placeholder="CVV" type="text">
+          </div> <!-- form-group// -->
+        </form>
+
+        <div class='form-row'>
+          <div class='col-md-12'>
+            <div class='form-control total btn btn-info'>
+              Total:
+              <span class='amount'>{{ prix }} Dh </span>
+            </div>
+          </div>
+        </div>
+    <div class="modal-footer">
+      <div class="form-group">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+           
+       <div class="form-group">
+         <button required class="form-control"  (click)=" ConfirmerAchat()" class="btn btn-success" data-bs-dismiss="modal" > Payer </button></div>
+       </div>
+    </div>
+  

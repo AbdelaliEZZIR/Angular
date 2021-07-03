@@ -1,0 +1,62 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css">
+
+
+<div class="card bg-light">
+<article class="card-body mx-auto" style="max-width: 400px;">
+	<h4 class="card-title mt-3 text-center">Créer un compte</h4>
+	
+<form>
+	<div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+        <input name="" class="form-control" [(ngModel)]="newUtilisateur.nom"  [ngModelOptions]="{standalone: true}"  placeholder="Nom" type="text">
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+		 </div>
+        <input name="" class="form-control" [(ngModel)]="newUtilisateur.prenom"  [ngModelOptions]="{standalone: true}" placeholder="Prenom" type="text">
+    </div> <!-- form-group// -->
+    <div class="form-group input-group" >
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+		 </div>
+        <input name="" class="form-control" [(ngModel)]="newUtilisateur.email" [ngModelOptions]="{standalone: true}" placeholder="Email" type="email">
+
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+		<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-address-card"></i> </span>
+		 </div>
+        <input name="" class="form-control" [(ngModel)]="newUtilisateur.adresse"  [ngModelOptions]="{standalone: true}" placeholder="adresse" type="text">
+    </div> <!-- form-group// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-phone"></i> </span>
+		</div>
+		<select class="custom-select" style="max-width: 120px;" >
+		    <option selected="">+212</option>
+		    <option value="1">+972</option>
+		    <option value="2">+198</option>
+		    <option value="3">+701</option>
+		</select>
+    	<input name="" class="form-control" [(ngModel)]="newUtilisateur.tel"  [ngModelOptions]="{standalone: true}"  placeholder="Telephone" type="text">
+	</div> <!-- form-group end.// -->
+    <div class="form-group input-group">
+    	<div class="input-group-prepend">
+		    <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+		</div>
+        <input class="form-control" [(ngModel)]="newUtilisateur.motDePasse"  [ngModelOptions]="{standalone: true}" placeholder="Mot de passe" type="password">
+    </div> <!-- form-group// -->>                                      
+    <div class="form-group">
+        <button  (click)="creer()" class="btn btn-primary btn-block"> Créer   </button>
+    </div> <!-- form-group// -->      
+    <p class="text-center">j'ai un compte? <a href="connection">Connexion</a> </p>                                                                 
+</form>
+</article>
